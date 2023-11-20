@@ -6,12 +6,15 @@ export default function Home() {
   const duplicatedPosts: Post[] = Array(10).fill(posts).flat();
 
   return (
-    <div className="container-xl">
-      <ul className="grid grid-cols-1 gap-x-10 gap-y-14 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12">
-        {duplicatedPosts.map((post, index) => (
-          <PostListItem key={index} post={post} />
-        ))}
-      </ul>
-    </div>
+    <>
+      <section className="h-[600px] bg-gradient-to-r from-cyan-500 to-blue-500 py-40"></section>
+      <section className="container-xl pt-16">
+        <ul className="grid grid-cols-1 gap-x-10 gap-y-14 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12">
+          {duplicatedPosts.map((post, index) => (
+            <PostListItem key={index} post={post} />
+          ))}
+        </ul>
+      </section>
+    </>
   );
 }
