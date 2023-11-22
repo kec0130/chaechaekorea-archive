@@ -17,19 +17,19 @@ const PostListItem = ({ post }: { post: Post }) => {
           />
         </Link>
         <div className="mt-4">
-          <div className="mb-2 text-sm font-semibold uppercase text-gray-500">
+          <div className="mb-2 text-sm font-semibold uppercase text-gray-400">
             <Link href={`/category/${post.category}`}>{post.category}</Link>
           </div>
           <Link href={`/${post.slug}`}>
             <h2 className="text-2xl font-bold">{post.title}</h2>
             <p className="mt-3 line-clamp-3">{post.description}</p>
           </Link>
-          <div className="mt-3 flex flex-wrap gap-1 text-sm text-gray-500">
+          <div className="mt-3 text-sm text-gray-400">
             <time dateTime={dayjs(post.date).format('YYYY-MM-DD')}>
               {dayjs(post.date).format('MMM D, YYYY')}
             </time>
-            <span>·</span>
-            <div>{post.readTime} min read</div>
+            <span className="px-2">·</span>
+            {post.readTime} min read
           </div>
         </div>
       </article>

@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={clsx('text-gray-900', inter.className)}>
         <Header />
-        <main>{children}</main>
+        <div>{children}</div>
         <Footer />
       </body>
     </html>
