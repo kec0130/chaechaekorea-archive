@@ -1,8 +1,9 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 import remarkGfm from 'remark-gfm';
-import remarkToc, { Options as TocOptions } from 'remark-toc';
+import remarkToc from 'remark-toc';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypePrettyCode, { Options as PrettyCodeOptions } from 'rehype-pretty-code';
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -52,16 +53,16 @@ export default makeSource({
   contentDirPath: 'posts',
   documentTypes: [Post],
   mdx: {
-    remarkPlugins: [
-      remarkGfm,
+    remarkPlugins: [remarkGfm, remarkToc],
+    rehypePlugins: [
+      rehypeSlug,
+      rehypeAutolinkHeadings,
       [
-        remarkToc,
+        rehypePrettyCode,
         {
-          maxDepth: 3,
-          skip: 'Intro',
-        } satisfies Partial<TocOptions>,
+          theme: 'one-dark-pro',
+        } satisfies Partial<PrettyCodeOptions>,
       ],
     ],
-    rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
   },
 });
