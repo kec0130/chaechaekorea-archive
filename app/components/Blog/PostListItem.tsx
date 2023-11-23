@@ -11,9 +11,10 @@ const PostListItem = ({ post }: { post: Post }) => {
           <Image
             src={post.image}
             alt={post.title}
-            width={300}
-            height={165}
-            className="h-full w-full rounded-xl object-cover"
+            width={374}
+            height={196}
+            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+            className="h-full w-full rounded-lg object-cover"
           />
         </Link>
         <div className="mt-4">

@@ -6,13 +6,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 const NextImage = ({ src, alt }: { src: string; alt: string }) => {
   return (
     <figure>
-      <Image
-        src={`/images/blog/${src}`}
-        alt={alt}
-        width={735}
-        height={490}
-        sizes="(max-width: 680px) 100vw, (max-width: 1024px) 650px, 735px"
-      />
+      <Image src={`/images/blog/${src}`} alt={alt} width={735} height={490} />
       <figcaption className="text-center">{alt}</figcaption>
     </figure>
   );
@@ -33,7 +27,6 @@ const CustomLink = (props: any) => {
 const components: MDXComponents = {
   Image: NextImage,
   a: CustomLink,
-  mark: (props) => <mark className="bg-yellow-200" {...props} />,
 };
 
 const Mdx = ({ code }: { code: string }) => {
