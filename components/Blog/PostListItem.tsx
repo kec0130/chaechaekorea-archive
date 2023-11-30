@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import dayjs from 'dayjs';
+import Link from 'next/link';
+import Image from 'next/image';
 import { Post } from 'contentlayer/generated';
 
 const PostListItem = ({ post }: { post: Post }) => {
@@ -29,8 +29,7 @@ const PostListItem = ({ post }: { post: Post }) => {
             <time dateTime={dayjs(post.date).format('YYYY-MM-DD')}>
               {dayjs(post.date).format('MMM D, YYYY')}
             </time>
-            <span className="px-2">·</span>
-            {post.readTime} min read
+            <span className="before:px-[6px] before:content-['·']">{post.readTime} min read</span>
           </div>
         </div>
       </article>

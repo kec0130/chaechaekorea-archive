@@ -1,5 +1,5 @@
 import { allPosts } from 'contentlayer/generated';
-import PostList from '@/app/components/Blog/PostList';
+import PostList from '@/components/Blog/PostList';
 
 const CategoryPage = ({ params }: { params: { categoryName: string } }) => {
   const posts = allPosts.filter((post) => post.category === params.categoryName);

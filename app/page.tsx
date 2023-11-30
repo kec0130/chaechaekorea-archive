@@ -1,5 +1,5 @@
 import { Post, allPosts } from 'contentlayer/generated';
-import PostList from './components/Blog/PostList';
+import PostList from '@/components/Blog/PostList';
 
 export default function Home() {
   const posts = allPosts.sort((a, b) => (b.date > a.date ? 1 : -1));
