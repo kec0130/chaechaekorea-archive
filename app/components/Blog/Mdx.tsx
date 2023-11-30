@@ -3,11 +3,11 @@ import Image from 'next/image';
 import type { MDXComponents } from 'mdx/types';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
-const NextImage = ({ src, alt }: { src: string; alt: string }) => {
+const NextImage = ({ src, alt, caption }: { src: string; alt: string; caption?: string }) => {
   return (
     <figure>
       <Image src={`/images/blog/${src}`} alt={alt} width={735} height={490} />
-      <figcaption className="text-center">{alt}</figcaption>
+      {caption && <figcaption className="text-center">{caption}</figcaption>}
     </figure>
   );
 };
