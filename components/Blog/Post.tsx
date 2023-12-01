@@ -1,22 +1,23 @@
 import dayjs from 'dayjs';
 import Link from 'next/link';
 import { Post } from 'contentlayer/generated';
-import Mdx from './Mdx';
+
+import Mdx from '../Mdx';
 
 const Post = ({ post }: { post: Post }) => {
   return (
-    <article className="prose lg:prose-lg prose-figcaption:text-sm mx-auto py-10">
+    <article className="prose mx-auto py-10 lg:prose-lg prose-figcaption:text-sm">
       <header>
         <div className="not-prose mb-4">
           <Link
             href={`/category/${post.category}`}
-            className="font-semibold uppercase text-gray-400"
+            className="font-semibold uppercase text-gray-500"
           >
             {post.category}
           </Link>
         </div>
         <h1>{post.title}</h1>
-        <div className="not-prose text-sm text-gray-400 lg:text-base">
+        <div className="not-prose text-sm text-gray-500 lg:text-base">
           <time dateTime={dayjs(post.date).format('YYYY-MM-DD')}>
             {dayjs(post.date).format('MMM D, YYYY')}
           </time>
