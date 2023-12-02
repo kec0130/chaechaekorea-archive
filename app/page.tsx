@@ -19,19 +19,18 @@ export default function Home() {
             priority
           />
         </div>
-        <div className="bg-black/60 px-4 py-8 text-center text-white lg:px-8 lg:py-10">
-          <h1 className="mb-6 text-3xl font-semibold md:text-4xl lg:text-5xl">
+        <div className="bg-black/60 px-4 py-6 text-center text-white lg:px-8 lg:py-10">
+          <h1 className="mb-3 text-3xl font-semibold sm:mb-6 md:text-4xl lg:text-5xl">
             Discover the Authentic Korea
           </h1>
           <p className="text-md md:text-lg lg:text-xl">
-            Explore Korea through the eyes of locals!
-            <br />
-            Get authentic insights on travel, cuisine, daily life, and the vibrant culture of Korea.
+            Explore Korea through the eyes of locals! <br className="hidden sm:inline" />
+            Get authentic insights on travel, cuisine, daily life, and vibrant culture of Korea.
           </p>
         </div>
       </section>
-      <main className="container-xl pt-16">
-        <section>
+      <main className="container-xl">
+        <section className="pt-10">
           <PostList posts={posts} />
         </section>
       </main>
