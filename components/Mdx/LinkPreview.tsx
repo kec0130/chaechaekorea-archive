@@ -27,20 +27,39 @@ const LinkPreview = ({ url }: { url: string }) => {
 
   if (error || !data)
     return (
-      <p>
-        <a
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex overflow-hidden rounded-[4px] border border-gray-200 no-underline transition-colors hover:bg-gray-100"
-        >
-          <div className="flex-1 overflow-hidden px-4 py-3 text-sm font-normal text-gray-700">
-            {url}
-          </div>
-        </a>
-      </p>
+      <LinkContainer url={url}>
+        <div className="flex-1 overflow-hidden px-4 py-3 text-sm font-normal text-gray-700">
+          {url}
+        </div>
+      </LinkContainer>
     );
 
+  return (
+    <LinkContainer url={url}>
+      <div className="flex-1 overflow-hidden px-4 py-3 font-normal">
+        <div className="line-clamp-1 text-base font-semibold text-gray-900">{data.title}</div>
+        <div className="my-[6px] line-clamp-2 h-10 text-sm text-gray-500">{data.description}</div>
+        <div className="flex items-center">
+          <img src={data.favicon} alt="logo" className="!m-0 h-4 w-4" />
+          <div className="ml-[6px] overflow-hidden text-ellipsis whitespace-nowrap text-xs text-gray-700">
+            {url}
+          </div>
+        </div>
+      </div>
+      {data.image && (
+        <div className="relative hidden w-[200px] sm:block">
+          <div className="absolute inset-0">
+            <img src={data.image} alt={data.title} className="!m-0 h-full w-full object-cover" />
+          </div>
+        </div>
+      )}
+    </LinkContainer>
+  );
+};
+
+export default LinkPreview;
+
+const LinkContainer = ({ url, children }: { url: string; children: React.ReactNode }) => {
   return (
     <p>
       <a
@@ -49,35 +68,16 @@ const LinkPreview = ({ url }: { url: string }) => {
         rel="noopener noreferrer"
         className="flex overflow-hidden rounded-[4px] border border-gray-200 no-underline transition-colors hover:bg-gray-100"
       >
-        <div className="flex-1 overflow-hidden px-4 py-3 font-normal">
-          <div className="line-clamp-1 text-base font-semibold text-gray-900">{data.title}</div>
-          <div className="my-[6px] line-clamp-2 h-10 text-sm text-gray-500">{data.description}</div>
-          <div className="flex items-center">
-            <img src={data.favicon} alt="logo" className="!m-0 h-4 w-4" />
-            <div className="ml-[6px] overflow-hidden text-ellipsis whitespace-nowrap text-xs text-gray-700">
-              {url}
-            </div>
-          </div>
-        </div>
-
-        {data.image && (
-          <div className="relative hidden w-[200px] sm:block">
-            <div className="absolute inset-0">
-              <img src={data.image} alt={data.title} className="!m-0 h-full w-full object-cover" />
-            </div>
-          </div>
-        )}
+        {children}
       </a>
     </p>
   );
 };
 
-export default LinkPreview;
-
 const Loading = () => {
   return (
     <p className="flex h-[116px] w-full items-center justify-center space-x-2 rounded-[4px] border border-gray-200">
-      <div aria-label="loading" role="status" className="">
+      <div aria-label="loading" role="status">
         <svg
           width="24"
           height="24"
