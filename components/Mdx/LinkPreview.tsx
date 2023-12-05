@@ -61,7 +61,7 @@ export default LinkPreview;
 
 const LinkContainer = ({ url, children }: { url: string; children: React.ReactNode }) => {
   return (
-    <p>
+    <div className="my-5">
       <a
         href={url}
         target="_blank"
@@ -70,13 +70,13 @@ const LinkContainer = ({ url, children }: { url: string; children: React.ReactNo
       >
         {children}
       </a>
-    </p>
+    </div>
   );
 };
 
 const Loading = () => {
   return (
-    <p className="flex h-[116px] w-full items-center justify-center space-x-2 rounded-[4px] border border-gray-200">
+    <div className="my-5 flex h-[116px] w-full items-center justify-center space-x-2 rounded-[4px] border border-gray-200">
       <div aria-label="loading" role="status">
         <svg
           width="24"
@@ -94,6 +94,6 @@ const Loading = () => {
         </svg>
       </div>
       <span className="text-xs font-medium text-slate-500">Loading...</span>
-    </p>
+    </div>
   );
 };

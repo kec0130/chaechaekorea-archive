@@ -9,19 +9,21 @@ import { defaultMetadata } from '@/components/Layout/constants';
 
 const inter = Inter({ subsets: ['latin'] });
 
+const { title, description } = defaultMetadata;
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://chaechaekorea.com'),
   title: {
-    default: defaultMetadata.title,
-    template: `%s | ${defaultMetadata.title}`,
-    absolute: `${defaultMetadata.title} - Discover the Authentic Korea`,
+    default: title,
+    template: `%s | ${title}`,
+    absolute: `${title} - Discover the Authentic Korea`,
   },
-  description: defaultMetadata.description,
+  description,
   openGraph: {
-    title: defaultMetadata.title,
-    description: defaultMetadata.description,
+    title,
+    description,
     url: '/',
-    siteName: defaultMetadata.title,
+    siteName: title,
     type: 'website',
     locale: 'en_US',
     images: [
@@ -29,14 +31,24 @@ export const metadata: Metadata = {
         url: '/images/og.png',
         width: 1200,
         height: 630,
-        alt: defaultMetadata.title,
+        alt: title,
       },
     ],
   },
   twitter: {
-    title: defaultMetadata.title,
-    description: defaultMetadata.description,
+    title,
+    description,
     card: 'summary_large_image',
+  },
+  alternates: {
+    types: {
+      'application/rss+xml': [
+        {
+          title: `${title} | Feed`,
+          url: 'https://chaechaekorea.com/api/rss',
+        },
+      ],
+    },
   },
   robots: {
     index: true,

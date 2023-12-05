@@ -28,8 +28,11 @@ export const generateMetadata = async (
       title,
       description,
       url: `/${slug}`,
+      siteName: title,
       type: 'article',
       publishedTime: date,
+      tags: post.category,
+      authors: 'ChaeChae Korea',
       images: [image, ...previousImages],
     },
     twitter: {
