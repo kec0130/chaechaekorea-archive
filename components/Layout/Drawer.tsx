@@ -13,20 +13,20 @@ const Drawer = ({ isOpen, setIsOpen }: Props) => {
     <>
       <div
         className={clsx(
-          'fixed right-0 top-0 z-40 h-full w-64 translate-x-full transform bg-gray-100 text-gray-700 shadow-lg transition-transform duration-500',
-          { 'translate-x-0': isOpen },
+          'fixed right-0 top-0 z-40 flex h-full w-64 transform flex-col bg-gray-100 p-4 text-gray-700 shadow-lg transition-transform duration-500',
+          { 'translate-x-0': isOpen, 'translate-x-full': !isOpen },
         )}
       >
-        <div className="p-4">
-          <div className="flex justify-end p-2">
-            <button
-              aria-label="close sidebar"
-              className="cursor-pointer p-1"
-              onClick={() => setIsOpen(false)}
-            >
-              <CloseIcon className="fill-current" />
-            </button>
-          </div>
+        <div className="flex justify-end">
+          <button
+            aria-label="close sidebar"
+            className="cursor-pointer p-1"
+            onClick={() => setIsOpen(false)}
+          >
+            <CloseIcon className="fill-current" />
+          </button>
+        </div>
+        <nav>
           <ul className="flex flex-col items-center">
             {categories.map((category) => (
               <li key={category} className="w-full">
@@ -40,12 +40,13 @@ const Drawer = ({ isOpen, setIsOpen }: Props) => {
               </li>
             ))}
           </ul>
-        </div>
+        </nav>
       </div>
       <div
         aria-label="drawer overlay"
-        className={clsx('pointer-events-none fixed inset-0 -z-10 transition-all', {
-          'pointer-events-auto z-30 bg-gray-900/80 backdrop-blur': isOpen,
+        className={clsx('transition-bg fixed inset-0 backdrop-blur', {
+          'pointer-events-auto z-30 bg-gray-900/80': isOpen,
+          'pointer-events-none -z-10 bg-transparent': !isOpen,
         })}
         onClick={() => setIsOpen(false)}
       />
