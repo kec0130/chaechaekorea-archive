@@ -1,5 +1,7 @@
+import Image from 'next/image';
 import { Metadata, ResolvingMetadata } from 'next';
 import { allPosts } from 'contentlayer/generated';
+
 import { categories, defaultMetadata } from '@/components/Layout/constants';
 import PostList from '@/components/Blog/PostList';
 
@@ -45,8 +47,27 @@ const CategoryPage = ({ params: { categoryName } }: { params: { categoryName: st
   const posts = allPosts.filter((post) => post.category === categoryName);
 
   return (
-    <main className="container-xl">
-      <section className="pt-10">
+    <main>
+      <section className="container-xl p-0 lg:px-8">
+        <div className="relative flex h-[30vh] items-center justify-center bg-black/60">
+          <div className="absolute inset-0 -z-10 overflow-hidden">
+            <Image
+              src={`/images/cover/${categoryName}.jpg`}
+              alt={`ChaeChae Korea - ${categoryName}`}
+              width={1920}
+              height={1280}
+              sizes="100vw"
+              className="h-full w-full object-cover"
+              priority
+            />
+          </div>
+          <h1 className="px-6 text-center text-3xl font-semibold text-white md:text-4xl lg:text-5xl">
+            {categoryName.toUpperCase()}
+          </h1>
+        </div>
+      </section>
+
+      <section className="container-xl pt-10">
         <PostList posts={posts} />
       </section>
     </main>

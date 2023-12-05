@@ -7,11 +7,11 @@ export default function Home() {
 
   return (
     <>
-      <section className="relative flex h-[50dvh] items-center justify-center px-4">
+      <section className="relative flex h-[50vh] items-center justify-center bg-black/60 pt-14 md:pt-[72px]">
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <Image
-            src="/images/main-cover-01.jpg"
-            alt="Welcome to ChaeChae Korea Homepage"
+            src="/images/cover/main-01.jpg"
+            alt="ChaeChae Korea - Home"
             width={1920}
             height={1280}
             sizes="100vw"
@@ -19,7 +19,7 @@ export default function Home() {
             priority
           />
         </div>
-        <div className="bg-black/60 px-4 py-6 text-center text-white lg:px-8 lg:py-10">
+        <div className="px-6 text-center text-white">
           <h1 className="mb-3 text-3xl font-semibold sm:mb-6 md:text-4xl lg:text-5xl">
             Discover the Authentic Korea
           </h1>
@@ -29,6 +29,7 @@ export default function Home() {
           </p>
         </div>
       </section>
+
       <main className="container-xl">
         <section className="pt-10">
           <PostList posts={posts} />
