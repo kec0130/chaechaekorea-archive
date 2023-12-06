@@ -40,7 +40,6 @@ const Header = () => {
             <div className="flex items-center lg:hidden">
               <button
                 aria-label="open sidebar"
-                role="button"
                 className="p-1"
                 onClick={() => setIsDrawerOpen(true)}
               >

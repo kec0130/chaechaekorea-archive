@@ -20,7 +20,6 @@ const Drawer = ({ isOpen, setIsOpen }: Props) => {
         <div className="flex justify-end">
           <button
             aria-label="close sidebar"
-            role="button"
             className="cursor-pointer p-1"
             onClick={() => setIsOpen(false)}
           >
@@ -45,6 +44,7 @@ const Drawer = ({ isOpen, setIsOpen }: Props) => {
       </div>
       <div
         aria-label="drawer overlay"
+        role="button"
         className={clsx('transition-bg fixed inset-0 backdrop-blur', {
           'pointer-events-auto z-30 bg-gray-900/80': isOpen,
           'pointer-events-none -z-10 bg-transparent': !isOpen,
