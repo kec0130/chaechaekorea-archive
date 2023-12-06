@@ -18,10 +18,10 @@ const PostListItem = ({ post }: { post: Post }) => {
           />
         </Link>
         <div className="mt-4">
-          <div className="mb-2 text-sm font-semibold uppercase text-gray-500">
-            <Link href={`/category/${post.category}`}>{post.category}</Link>
-          </div>
           <Link href={`/${post.slug}`}>
+            <div className="mb-2 text-sm font-semibold uppercase text-gray-500">
+              {post.category}
+            </div>
             <h2 className="text-2xl font-bold">{post.title}</h2>
             <p className="mt-3 line-clamp-3 text-gray-700">{post.description}</p>
           </Link>

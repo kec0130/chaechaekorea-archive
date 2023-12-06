@@ -20,6 +20,7 @@ const Drawer = ({ isOpen, setIsOpen }: Props) => {
         <div className="flex justify-end">
           <button
             aria-label="close sidebar"
+            role="button"
             className="cursor-pointer p-1"
             onClick={() => setIsOpen(false)}
           >
